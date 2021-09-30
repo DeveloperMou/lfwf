@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO">
+
+    <title>LFWF-Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://lfwf.io/web/img/fav.png" rel="shortcut icon" type="image/x-icon"/>
+    
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="https://lfwf.io/backend/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="https://lfwf.io/backend/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="https://lfwf.io/backend/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+	<link href="https://lfwf.io/backend/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+	<link href="https://lfwf.io/backend/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="https://lfwf.io/backend/assets/css/practiceTime.css" rel="stylesheet" type="text/css">
+    <link href="https://lfwf.io/backend/assets/summernote/summernote.css" rel="stylesheet" type="text/css"/>
+    <!-- /global stylesheets --> 
+    <!-- /filePond stylesheets --> 
+    <link href="https://lfwf.io/web/filepond/filepond.css" rel="stylesheet" type="text/css"/>
+    <!-- Rang Slider stylesheets --> 
+    <link href="https://lfwf.io/web/rangSlider/rangSlider.css" rel="stylesheet" type="text/css"/>
+    <link href="https://lfwf.io/web/css/custom.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .add-new {
+            color: #fff!important;
+        }
+        .add-new:hover {
+            opacity: 1 !important;
+        }
+        .panel>.dataTables_wrapper .table-bordered, .panel-body>.dataTables_wrapper .table-bordered {
+            border: 1px solid #ddd;
+        }
+        .dataTables_length {
+            margin: 20px 0 20px 20px;
+        }
+        .dataTables_filter {
+            margin: 20px 0 20px 20px;
+        }
+        .dataTables_info {
+            margin-bottom: 20px;
+        }
+        .dataTables_paginate {
+            margin: 20px 0 20px 20px;
+        }
+        .action-icon {
+            padding: 0px 10px 0 0;
+        }
+
+        .kv-fileinput-upload {
+            display: none;
+        }
+    </style>
+        <style>
+        .theme_perspective {
+            width: 120px!important;
+        }
+        .theme_perspective .pace_activity {
+            background-color: rgb(116, 113, 113)!important;
+        }
+    </style>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HBZ5F6RP7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-5HBZ5F6RP7');
+    </script>
+</head>
+<body class="navbar-top-md-xs sidebar-xs has-detached-left">
+    <div id="app">
+
+        
+        <!-- Main navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://lfwf.io/home"><img src="https://lfwf.io/backend/assets/images/logo_light.png" alt=""></a>
+
+                <ul class="nav navbar-nav pull-right visible-xs-block">
+                    <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-mobile">
+                <ul class="nav navbar-nav">
+                    
+                                        <li><a class="sidebar-control sidebar-detached-hide hidden-xs"><i class="icon-drag-left"></i></a></li>
+                                    </ul>
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="https://lfwf.io/home"><i class="icon-home4 position-left"></i> <span>Dashboard</span></a></li>
+                    <li class=""><a href="https://lfwf.io/overview">Overview</a></li>
+                    <li class=""><a href="https://lfwf.io/studentRanking">My Batch</a></li>
+                    <li class=""><a href="https://lfwf.io/todayGoal">Today Goal</a></li> 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class List<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="active"><a  href="https://lfwf.io/class?class_id=1077" >Class</a></li>
+                            <li class=""><a href="https://lfwf.io/stdLiveClass" class="joinAClass" id="joinLive">Live Class</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class=""><a href="https://lfwf.io/takeSupport">General Support</a></li>
+                            <li class=""><a href="https://lfwf.io/marketplaceFaqList">Marketplace Support</a></li>
+                            <li class=""><a href="https://lfwf.io/instructorSupport">Co-Instructor Support</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="https://lfwf.io/improveScore">Improve Score</a></li>
+                    <li class=""><a href="https://lfwf.io/myDuePayments">Payments</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-bubbles4"></i>
+                            <span class="visible-xs-inline-block position-right">Messages</span>
+                                                        <span id="unseenMsg" class="badge bg-warning-400">0</span>
+                        </a>
+                        
+                        <div class="dropdown-menu dropdown-content width-350">
+                            <div class="dropdown-content-heading">
+                                Messages
+                            </div>
+    
+                            <ul class="media-list dropdown-content-body">
+                                                                                                                                                    <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1075&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=26686><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1075&amp;#assignments" class="media-heading notifyLink" data-id=26686>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-28 4:26 AM</span>
+                                                </a>
+                                                <span class="text-muted">
+                                                Good job, You did really good assignment</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1074&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=26305><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1074&amp;#assignments" class="media-heading notifyLink" data-id=26305>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-25 12:37 AM</span>
+                                                </a>
+                                                <span class="text-muted">Nice work !&nbsp;</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        
+                                                                                    <li class="media">
+                                                <p id="emptyNotifiy"></p>
+                                                <div class="media-left">
+                                                    <a href="https://lfwf.io/class?class_id=1073&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=26049><i class="icon-redo2"></i></a>
+                                                </div>
+                                                <div class="media-body"> 
+                                                    <a href="#" class="media-heading">
+                                                        <span>shahariar somrat</span>
+                                                        <span class="media-annotation pull-right">2021-09-23 4:29 AM</span>
+                                                    </a>
+                                                    <span class="text-muted">2ta lnk h/w er&nbsp;assignment lnk nei</span>
+                                                </div>
+                                            </li>
+                                                                                                                                                                                                                                <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1072&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=25667><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1072&amp;#assignments" class="media-heading notifyLink" data-id=25667>
+                                                    <span class="text-semibold">Md. Akram Hoshen</span>
+                                                    <span class="media-annotation pull-right">2021-09-21 2:22 AM</span>
+                                                </a>
+                                                <span class="text-muted">gd work</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1071&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=25234><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1071&amp;#assignments" class="media-heading notifyLink" data-id=25234>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-19 1:32 AM</span>
+                                                </a>
+                                                <span class="text-muted">Nice work !&nbsp;</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1070&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=24610><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1070&amp;#assignments" class="media-heading notifyLink" data-id=24610>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-14 5:55 PM</span>
+                                                </a>
+                                                <span class="text-muted">Nice work ! on average, Keep practice... </span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/home" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=24398><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/home" class="media-heading notifyLink" data-id=24398>
+                                                    <span class="text-semibold">Md. Akram Hoshen</span>
+                                                    <span class="media-annotation pull-right">2021-09-13 6:23 PM</span>
+                                                </a>
+                                                <span class="text-muted">Important meeting with jillur vaiya</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1069&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=24205><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1069&amp;#assignments" class="media-heading notifyLink" data-id=24205>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-12 7:55 PM</span>
+                                                </a>
+                                                <span class="text-muted">aro ektu monojog diye kaj korte hobe</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        <li class="media">
+                                            <div class="media-left">
+												<a href="https://lfwf.io/class?class_id=1068&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=23838><i class="icon-redo2"></i></a>
+											</div>
+            
+                                            <div class="media-body"> 
+                                                <a href="https://lfwf.io/class?class_id=1068&amp;#assignments" class="media-heading notifyLink" data-id=23838>
+                                                    <span class="text-semibold">shahariar somrat</span>
+                                                    <span class="media-annotation pull-right">2021-09-08 1:41 PM</span>
+                                                </a>
+                                                <span class="text-muted">Work in this way, inshallah there will be a lot of good things ahead</span>
+                                            </div>
+                                        </li>
+                                                                                                                                                                                        
+                                                                                    <li class="media">
+                                                <p id="emptyNotifiy"></p>
+                                                <div class="media-left">
+                                                    <a href="https://lfwf.io/class?class_id=1067&amp;#assignments" class="btn border-teal-400 text-teal btn-flat btn-rounded btn-icon btn-xs notifyLink" data-id=23344><i class="icon-redo2"></i></a>
+                                                </div>
+                                                <div class="media-body"> 
+                                                    <a href="#" class="media-heading">
+                                                        <span>Annonymous</span>
+                                                        <span class="media-annotation pull-right">2021-09-03 1:14 PM</span>
+                                                    </a>
+                                                    <span class="text-muted">Nice Work&nbsp; ! Valo student er etu vul&nbsp; Keep practice..</span>
+                                                </div>
+                                            </li>
+                                                                                                                                        </ul>
+    
+                            <div class="dropdown-content-footer">
+                                <a href="#" data-popup="tooltip"><i class="icon-menu display-block"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown dropdown-user">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="https://lfwf.io/backend/assets/images/image.png" alt="">
+                            <span>Mou</span>
+                            <i class="caret"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="https://lfwf.io/availableAssignment"><i class="icon-portfolio"></i> Check Assignments</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://lfwf.io/profile"><i class="icon-user-plus"></i> My profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://lfwf.io/myDuePayments"><i class="icon-cash3"></i> My Payments</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://lfwf.io/mySuccessStory"><i class="icon-trophy3"></i> My Success</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://lfwf.io/logout" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit(); localStorage.clear();"><i class="icon-switch2"></i> Logout</a>
+                                <form id="logout-form" action="https://lfwf.io/logout" method="POST" class="d-none">
+                                    <input type="hidden" name="_token" value="0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO">                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /main navbar -->
+        
+        <!-- Page container -->
+        <div class="page-container">
+
+            <!-- Page content -->
+            <div class="page-content">
+
+                <!-- Main content -->
+                <div class="content-wrapper">
+                                            <div id="timerItem" title="Move Anywhere Just Drag &amp; Drop" style="display: none;">
+                            <!-- Innter item content -->
+                            <div id="timer" class="lfwf-timer">
+                                <div class="clock-wrapper lfwf-clock-wrap">
+                                    <span class="hours"></span>
+                                    <span class="dots">:</span>
+                                    <span class="minutes"></span>
+                                    <span class="dots">:</span>
+                                    <span class="seconds"></span>
+                                    <div class="buttons-wrapper lfwf-button-wrap">
+
+                                        <div class="stage filter-contrast" id="filterContrast"><div class="dot-shuttle"></div></div>
+                                        <div class="start-practice" id="startPractice"> </div>
+                                        <button class="btn lfwf-toggle-btn" id="start-cronometer" style="color: black">Start</button>
+                                        <button class="btn lfwf-toggle-btn" id="resume-timer" data-id=1039>Start</button>
+                                        <button class="btn lfwf-toggle-btn" id="again_start" data-id=1039>start</button>
+                                        <button class="btn lfwf-toggle-btn" id="stop-timer" data-id=1039>Stop</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <input type="hidden" class="total_time" value="03:54:35">
+                    <input type="hidden" class="remaining_time" value="325">
+                    <input type="hidden" class="status" value="1">
+
+                    <!-- Page header -->
+<div class="page-header">
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li>Home</li>
+        </ul>
+    </div>
+</div>
+<!-- /page header -->
+
+
+<!-- Content area -->
+<div class="content">
+
+    <!-- Detached sidebar -->
+    <div class="sidebar-detached">
+        <div class="sidebar sidebar-default">
+            <div class="sidebar-content">
+
+                <!-- Sidebar search -->
+                <div class="sidebar-category">
+                    <div class="category-content">
+                        <form action="#">
+                            <div class="has-feedback has-feedback-left">
+                                <input type="search" class="form-control" placeholder="Search" id="searchValue">
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base text-muted"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /sidebar search -->
+                
+                <!-- Sub navigation -->
+                                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 1</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1050"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="kHraOlbUzf8" materialId="274">
+                                        <i class="icon-googleplus5"></i>Day 1 - Roles of Successful Freelancing এবং Freelancing নিয়ে বিস্তারিত
+                                        <span class="label bg-success-400">00:13:34</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="QjpBlgG5h9g" materialId="275">
+                                        <i class="icon-googleplus5"></i>Day 2 - Web Design &amp; Web Development কি? কীভাবে? কেমনে? ফুল প্রসেস নিয়ে বিস্তারিত...
+                                        <span class="label bg-success-400">00:12:19</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Luj3R-oXoFg" materialId="276">
+                                        <i class="icon-googleplus5"></i>Day 3 - A-Z Web Development &amp; Freelancing Full free online courses | কি কি থাকছে এই কোর্স এ?
+                                        <span class="label bg-success-400">00:05:21</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Cqvzn_OVTWo" materialId="277">
+                                        <i class="icon-googleplus5"></i>Day 4 - HTML সব থেকে সহজ ভাবে, একবার দেখলে আজীবন মনে থাকবে...
+                                        <span class="label bg-success-400">00:18:58</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 2</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1051"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="XdFvQpWv7AE" materialId="278">
+                                        <i class="icon-googleplus5"></i>Day 5 || HTML Part 2 || HTML এর খুঁটিনাটি একবার দেখলে আজীবন মনে থাকবে
+                                        <span class="label bg-success-400">00:18:29</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="o8ADGu_6vcw" materialId="279">
+                                        <i class="icon-googleplus5"></i>Day 6 || HTML Part 3 || HTML Attribute নিয়ে সম্পূর্ণ বাংলায়, প্র্যাকটিস এর সাথে...
+                                        <span class="label bg-success-400">00:11:59</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 3</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1052"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="7n3egaAEy9U" materialId="280">
+                                        <i class="icon-googleplus5"></i>Day 7 || HTML Part 4 || HTML Form নিয়ে খুটিনাটি সম্পূর্ণ বাংলায়, সাথে প্র্যাকটিস...
+                                        <span class="label bg-success-400">00:12:46</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 4</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1053"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Vsp6TGcZyhI" materialId="281">
+                                        <i class="icon-googleplus5"></i>Day 8 || HTML Part 5 || HTML Table and Image Tag নিয়ে খুটিনাটি সাথে প্র্যাকটিস...
+                                        <span class="label bg-success-400">00:21:11</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 5</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1054"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="ykpqN09_ank" materialId="282">
+                                        <i class="icon-googleplus5"></i>Day 10 || CSS - Part 1, CSS কি ? কেন করবেন? কি ভাবে করবেন ? সম্পূর্ণ বিস্থারিত এক্সামপল এর সাথে
+                                        <span class="label bg-success-400">00:17:13</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="74cq2d2fUXU" materialId="283">
+                                        <i class="icon-googleplus5"></i>Day 11 || CSS - Part 2, দেখুন CSS কে, কি ভাবে পানির মতো সহজ করে শিখা যাই...
+                                        <span class="label bg-success-400">00:20:44</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 6</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1055"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="4n_I1U39YLs" materialId="284">
+                                        <i class="icon-googleplus5"></i>Day 12 || CSS - Part 3, Css Typography | Css Color &amp; Css Text Property নিয়ে বিস্তারিত...
+                                        <span class="label bg-success-400">00:23:05</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="K9zF2OfLsko" materialId="285">
+                                        <i class="icon-googleplus5"></i>Day 13 || CSS - Part 4, Details about Bootstrap &amp; CSS Font Property with Google fonts...
+                                        <span class="label bg-success-400">00:23:02</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 7</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1056"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="sAi8synNmVg" materialId="286">
+                                        <i class="icon-googleplus5"></i>Day 14 || CSS - Part 5 | Quiz, Font Awesome, Bootstrap typography class...
+                                        <span class="label bg-success-400">00:29:30</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="hKpV5Bwcli4" materialId="287">
+                                        <i class="icon-googleplus5"></i>Day 15 || CSS - Part 6 | CSS Box-type Padding, Margin, Border, একবার দেখলে সারাজীবন মনে থাকবে...
+                                        <span class="label bg-success-400">00:27:13</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 8</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1057"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="mGFVM4taV8g" materialId="288">
+                                        <i class="icon-googleplus5"></i>Day - 16 || CSS - Part 7 | Css Height, Width, Border-radius, Box-Shadow full details...
+                                        <span class="label bg-success-400">00:24:50</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="A1JQr-rnPAI" materialId="289">
+                                        <i class="icon-googleplus5"></i>Day - 17 || Part-1, CSS - Part 8 | Quiz, Question &amp; answer with Bootstrap all class for Box-type...
+                                        <span class="label bg-success-400">00:28:11</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="dDFh_8c-ap8" materialId="290">
+                                        <i class="icon-googleplus5"></i>Day - 17 || Part-2, Creating a basic Website by all Previews day code that we have learned...
+                                        <span class="label bg-success-400">00:14:10</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 9</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1058"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Tzk6ANcZK50" materialId="291">
+                                        <i class="icon-googleplus5"></i>Day - 18 || CSS Selector || Details About CSS Selector With Quiz...
+                                        <span class="label bg-success-400">00:25:03</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 10</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1059"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="LCm9Fb3yo0s" materialId="292">
+                                        <i class="icon-googleplus5"></i>Day - 19 || Part 1- Details About CSS Display Property, You must have to know about this...
+                                        <span class="label bg-success-400">00:27:54</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Jrv89-yxwcw" materialId="293">
+                                        <i class="icon-googleplus5"></i>Day - 19 || Part 2- Details About CSS Background Image property...
+                                        <span class="label bg-success-400">00:14:27</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 11</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1060"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="lYv5Hw0uBeA" materialId="294">
+                                        <i class="icon-googleplus5"></i>Day - 20 || Part 1- Details About CSS Position, Relative, Absolute, Fixed...
+                                        <span class="label bg-success-400">00:39:02</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="qx_iWqkKqcA" materialId="295">
+                                        <i class="icon-googleplus5"></i>Day - 20 || Part 2- VS Code AutoSave, Duplicate line, Live Preview || Visual Studio Code Tips...
+                                        <span class="label bg-success-400">00:10:19</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 12</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1061"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="3A3bWkCkGhg" materialId="296">
+                                        <i class="icon-googleplus5"></i>Day - 21 || CSS List Style, Single menu, Dropdown menu, Social icon menu full details...
+                                        <span class="label bg-success-400">00:42:57</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 13</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1062"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="wGG5v7hALp8" materialId="297">
+                                        <i class="icon-googleplus5"></i>Day - 22 || Details with CSS Before &amp; After, Before After Hover and Use Icon
+                                        <span class="label bg-success-400">00:25:22</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 14</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1063"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="jYE8wTW3EDs" materialId="298">
+                                        <i class="icon-googleplus5"></i>Day - 23 || CSS - Transform Animation - Translate, Rotate, Skew, Scale...
+                                        <span class="label bg-success-400">00:24:40</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 15</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1064"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Djgho4j1Wso" materialId="299">
+                                        <i class="icon-googleplus5"></i>Day - 24 || CSS Float &amp; Clear Step by step explanation with every single detail
+                                        <span class="label bg-success-400">00:32:05</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="98khrr_VmNA" materialId="300">
+                                        <i class="icon-googleplus5"></i>Day - 24 || Part 2 | Creating full website with HTML &amp; CSS
+                                        <span class="label bg-success-400">00:51:18</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 16</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1065"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="mX_NJoog1G8" materialId="301">
+                                        <i class="icon-googleplus5"></i>Day - 25 || Website Layout Concept &amp; Bootstrap Grid - Full Details Explanation
+                                        <span class="label bg-success-400">00:21:09</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Fklr7s_MAz8" materialId="302">
+                                        <i class="icon-googleplus5"></i>Day - 26 || Creating full website with Bootstrap
+                                        <span class="label bg-success-400">00:38:12</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 17</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1066"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="pXJfnzwgVgY" materialId="303">
+                                        <i class="icon-googleplus5"></i>Day - 27 || #ProblemSolver Part-1, সবাই এই ক্লাস অবশ্যই দেখবেন, প্র্যাকটিস শুরু করেন এর নাই করেন...
+                                        <span class="label bg-success-400">00:36:25</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="GC9E2EaPYn4" materialId="304">
+                                        <i class="icon-googleplus5"></i>Day - 27 || #ProblemSolver Part-2, সবাই এই ক্লাস অবশ্যই দেখবেন, প্র্যাকটিস শুরু করেন এর নাই করেন...
+                                        <span class="label bg-success-400">00:21:14</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="nejbmj_2gBo" materialId="305">
+                                        <i class="icon-googleplus5"></i>Day - 28 || Part-1 | Creating full website with HTML, CSS Row coding...
+                                        <span class="label bg-success-400">01:14:09</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 18</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1067"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="PXTnyFigjQ0" materialId="306">
+                                        <i class="icon-googleplus5"></i>Day - 28 || Part-2 | Creating full website with HTML, CSS Row coding...
+                                        <span class="label bg-success-400">01:40:30</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 19</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1068"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="PV04TvrO-nE" materialId="307">
+                                        <i class="icon-googleplus5"></i>Day - 29 || Full Details about HTML 5 &amp; Professional Project Package Making
+                                        <span class="label bg-success-400">00:34:47</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 20</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1069"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Jt4ZH-g066Q" materialId="308">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 1 - Bootstrap Features &amp; Environment Setup with tips...
+                                        <span class="label bg-success-400">00:26:33</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="2KDW5thG8mE" materialId="309">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 2 - Details about Getting started, box-sizing, autoprefixer...
+                                        <span class="label bg-success-400">00:13:35</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="JAkrFn6jxP0" materialId="310">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 3 - Details about Bootstrap Layout, grid &amp; column...
+                                        <span class="label bg-success-400">00:35:10</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 21</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1070"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="S-xrOMTCFPE" materialId="311">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 4, Typography, Images, Helpers &amp; Utilities Class Details...
+                                        <span class="label bg-success-400">00:40:21</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="ajAzE-iGfgs" materialId="312">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 5, Bootstrap v5 - Table, Card, Forms details explain...
+                                        <span class="label bg-success-400">00:46:41</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="5C5YaTrPkho" materialId="313">
+                                        <i class="icon-googleplus5"></i>Day - 30 || Bootstrap 5, Part- 6 - Details about Bootstrap v5 Components...
+                                        <span class="label bg-success-400">00:31:55</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 22</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1071"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="PqIcVYzV6TM" materialId="314">
+                                        <i class="icon-googleplus5"></i>Day - 31 || Creating full website using Bootstrap v5 with details explain...
+                                        <span class="label bg-success-400">01:05:11</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="gJnyl0YDiNs" materialId="315">
+                                        <i class="icon-googleplus5"></i>Day - 31 || Part-2, Creating full website using Bootstrap v5 with details explain...
+                                        <span class="label bg-success-400">00:46:57</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 23</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1072"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="wQ8MxAJfqw0" materialId="316">
+                                        <i class="icon-googleplus5"></i>Day - 32 || Display Flex Property || Supper easy way to learn Display Flexbox Property
+                                        <span class="label bg-success-400">00:36:54</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="zD5F_L-aXsk" materialId="317">
+                                        <i class="icon-googleplus5"></i>Day - 32, Part-2 || Display Flex Property || Display flex practice with live example
+                                        <span class="label bg-success-400">00:29:43</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 24</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1073"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="yKn58D-9OPo" materialId="366">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-1 || Creating a full website from a ThemeForest template with bootstrap v5...
+                                        <span class="label bg-success-400">01:17:54</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="UAKSAled8Yo" materialId="367">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-2 || About Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:22:10</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="ymZq9y6R4Xg" materialId="368">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-3 || Why Choose us Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:38:16</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 25</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1074"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="ag0BxkLjdAk" materialId="369">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-4 || Apply now Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:36:09</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="LBLsHUyiEjo" materialId="370">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-5 || Call to Action Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:18:02</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="0sfIzBnBxlM" materialId="371">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-6 || Services Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:29:44</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 26</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1075"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="odZ1cOuhLgs" materialId="372">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-7 || Testimonial &amp; team Section | Creating a full website from a ThemeForest template
+                                        <span class="label bg-success-400">00:23:56</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="DKNV46b0yjI" materialId="373">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-8 || Blog &amp; Footer Section | Creating a full website from a ThemeForest template...
+                                        <span class="label bg-success-400">00:33:06</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Vt7Eyi14rLw" materialId="374">
+                                        <i class="icon-googleplus5"></i>Day - 33, Part-9 || Final complete #Finix template || Page management || Static page &amp; Dynamic page
+                                        <span class="label bg-success-400">00:23:31</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 27</span>
+                                                                            <span class="label bg-info-400">( Completed )</span>
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1076"  class="rotate-180"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding"  style="display: none;" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="9Goso0E0eEY" materialId="375">
+                                        <i class="icon-googleplus5"></i>Day - 34 || Responsive CSS || Learn Responsive with fun, example and practice...
+                                        <span class="label bg-success-400">00:14:32</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="NitpVsCduRk" materialId="376">
+                                        <i class="icon-googleplus5"></i>Day - 34 || Part 2, Responsive CSS || Create a fully responsive website...
+                                        <span class="label bg-success-400">00:33:02</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="o-uWt5MDgAc" materialId="377">
+                                        <i class="icon-googleplus5"></i>Day - 34 || Part 3, Responsive CSS || Create a fully responsive website...
+                                        <span class="label bg-success-400">00:50:03</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                            <div class="sidebar-category classSidebar">
+                            <div class="category-title" style="cursor: pointer; background-color:#eee">
+                                <span class="class_name">
+                                    <span class="class_name_text">Class 28</span>
+                                                                            <span class="label bg-success-400">( Running )</span> 
+                                                                    </span>
+                                <ul class="icons-list classList_ul">
+                                                                            <li><a href="#" first_classID=1077 data-id="1077"  data-action="collapse"></a></li>
+                                                                    </ul>
+                            </div>
+                            
+                                                            <div class="category-content no-padding" >
+                                                            <ul class="navigation navigation-alt navigation-accordion">
+                                                                                                            <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Yw98i_fBOo8" materialId="378">
+                                        <i class="icon-googleplus5"></i>Day - 34 || Part 4, Responsive CSS || Creating Mobile Menu with CSS Without JavaScript &amp; jQuery
+                                        <span class="label bg-success-400">00:12:59</span>
+                                        </a>
+                                    </li>
+
+                                                                        <li>
+                                        <a href="#"  class="youtubeVideo"  videoId="Q7gH5UuyCD4" materialId="379">
+                                        <i class="icon-googleplus5"></i>Day - 34 || Part 5, Responsive With Bootstrap v5 || Bootstrap Responsive css
+                                        <span class="label bg-success-400">00:16:14</span>
+                                        </a>
+                                    </li>
+
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                                    
+            </div>
+        </div>
+    </div>
+    <!-- /detached sidebar -->
+
+    <!-- Detached content -->
+    <div class="container-detached">
+        <div class="content-detached">
+            <div class="row mb-10">
+                <div class="col-md-12">
+                    <!-- Second navbar -->
+                    <div class="navbar navbar-default navbar-xs">
+                        <ul class="nav navbar-nav no-border visible-xs-block">
+                            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-circle-down2"></i></a></li>
+                        </ul>
+
+                        <div class="navbar-collapse collapse" id="navbar-second-toggle">
+                            <ul class="nav navbar-nav" id="sub_menu">
+                                <li class="active classDetails-overView"><a href="classDetails">Overview</a></li>
+                                <li><a href="classResource">Resource</a></li>
+                                <li><a href="assignments">Assignments</a></li>
+                                <li><a href="quiz">Quiz</a></li>
+                                <li><a href="classLectureVideo">Class Rec</a></li>
+                                <li><a href="activities">Activities</a></li>
+                                <li class="for-classname-show"><a href="#" class="class_name_div" style="color: rgb(228, 109, 109);"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /second navbar -->
+                </div>
+            </div>
+
+            <!-- video player -->
+            <div class="panel-body" id="videoPlayerIframe">
+                <div id="video-placeholder"></div>
+            </div>
+            <!-- end video player -->
+            
+            <div class="" id="load_content" style="min-height: 90vh;">
+            </div>
+        </div>
+    </div>
+    <!-- /detached content -->
+
+</div>
+<!-- /content area -->
+
+                </div>
+                <!-- /main content -->
+                
+            </div>
+            <!-- /page content -->
+        </div>
+        <!-- /page container -->
+    </div>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <div class="fb-customerchat"
+                    attribution=setup_tool
+            page_id="112941143881682"
+                logged_in_greeting="Hi! How can we help you? if you have any issue or need help you can message..."
+        logged_out_greeting="Hi! How can we help you? if you have any issue or need help you can message...">
+    </div>
+    
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v9.0'
+            });
+        };
+    
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+
+    
+	<!-- Core JS files -->
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/popper.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/bootbox.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/bootbox.locales.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/summernote/summernote.min.js"></script>
+    
+    <!-- Stricky Class menu scrollbar -->
+        <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/ui/nicescroll.min.js"></script>
+        <!-- Horizontal Navbar JS files -->
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/ui/drilldown.js"></script>
+    
+    
+    <!-- Sweet Alert JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/notifications/sweet_alert.min.js"></script>
+
+    <!-- Form JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/validation/validate.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/inputs/touchspin.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/styling/switch.min.js"></script>
+	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <!-- Form JS files -->
+    
+    <!-- Uploader JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/plugins/uploaders/fileinput.min.js"></script>
+
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/core/app.js"></script>
+    
+    <!-- Datatable JS files -->
+    
+
+    <!-- Form Validation JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/pages/form_validation.js"></script>
+
+    <!-- Select2 JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/pages/form_select2.js"></script>
+
+    <!-- Uploader JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/pages/uploader_bootstrap.js"></script>
+    
+    <!-- Stricky Class menu scrollbar -->
+    	<script type="text/javascript" src="https://lfwf.io/backend/assets/js/sticky/sidebar_detached_sticky_custom.js"></script>
+        <!-- /Filepond JS files -->
+    <script type="text/javascript" src="https://lfwf.io/web/filepond/filepond.js"></script>
+    
+    <!-- /Filepond JS files -->
+    <script src="https://lfwf.io/web/rangSlider/prefixfree.min.js"></script>
+    <script src="https://lfwf.io/web/rangSlider/rangeslider.min.js"></script>
+    <script src="https://lfwf.io/web/rangSlider/underscore-min.js"></script>
+    
+    <!-- /Custom JS files -->
+    <script type="text/javascript" src="https://lfwf.io/backend/assets/js/custom_frame.js"></script>    
+
+    <!-- Per Page JS files -->
+    <script src="https://lfwf.io/backend/assets/js/videoPlayer/iframe_api.js"></script>
+<script src="https://lfwf.io/backend/assets/js/videoPlayer/script.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#videoPlayerIframe").hide();
+        var ajax_url = location.hash.replace(/^#/, '');
+        if (ajax_url.length < 1) {
+            ajax_url = 'classDetails';
+            window.location.hash = ajax_url;
+        }
+        // For Page Refresh / First time loaded
+        var first_class_id = $('.classList_ul').first().find('a').attr('first_classID');
+        LoadPageContent(ajax_url,first_class_id);
+
+        $('#sub_menu li a').removeClass('active');
+        $('#sub_menu li').removeClass('active');
+        $('#sub_menu li').find('a[href='+ajax_url+']').parent('li').addClass('active');
+        $('#sub_menu li').find('a[href='+ajax_url+']').addClass('active');
+
+        // sub menu
+        $('#sub_menu li').on('click', 'a', function(e) {
+            e.preventDefault();
+            $("#videoPlayerIframe").hide();
+            $('#load_content').show();
+            $('#sub_menu li a.active').removeClass('active');
+            $('#sub_menu li').removeClass('active');
+            $(this).parent('li').addClass('active');
+            $(this).addClass('active');
+
+            var url = $(this).attr('href');
+            let assign_batch_class_id = $('#load_content').find('#assign_batch_class_id').val();
+            if (url) {
+                if (url != '#') {
+                    window.location.hash = url;
+                    LoadPageContent(url,assign_batch_class_id);
+                }
+            }
+        })
+        // end sub menu
+
+        
+        //category click
+        $('.category-title').on('click', function(e){
+            e.preventDefault();
+            $("#videoPlayerIframe").hide();
+            $('#load_content').show();
+            let $cat_title_selector = $(this);
+
+            if($(this).find('.classList_ul').first().find('a').hasClass("rotate-180")){
+                // alert('rotate');
+                $('.category-title').find('.classList_ul').find('a').addClass("rotate-180");
+                $('.category-title').next(".category-content").hide();
+                $(this).next(".category-content").show();
+                $(this).find('.classList_ul').first().find('a').removeClass("rotate-180");
+                $('#sub_menu li').removeClass('active');
+                $('#sub_menu li a').removeClass('active');
+                $('.classDetails-overView').addClass('active');
+                var batch_class_id = $(this).find('.classList_ul').first().find('a').attr('data-id');
+                var url = 'classDetails';
+                if (url) {
+                    LoadPageContent(url, batch_class_id);
+                    let clicked_class_name = $cat_title_selector.find('span .class_name_text').text();
+                    $('.class_name_div').text(clicked_class_name);
+                }
+            }else{
+                // alert('no rotate');
+                $(this).find('.classList_ul').first().find('a').addClass("rotate-180");
+                $(this).next(".category-content").hide();
+            }
+        });
+
+        //Show classOverview from left sidebar
+        $('.classList_ul li').on('click', 'a', function(e) {
+            e.preventDefault();
+            if($(this).hasClass("rotate-180")){
+                // alert('a rotate');
+                $(this).removeClass("rotate-180");
+            }else{
+                // alert('a no rotate');
+                $(this).addClass("rotate-180");
+            }
+
+            $("#videoPlayerIframe").hide();
+            $('#load_content').show();
+        })
+        //End Show classOverview
+
+        $("#searchValue").on("keyup", function(e) {
+            e.preventDefault();
+            var value = $(this).val().toLowerCase();
+            $(".classSidebar").filter(function() {
+                $(this).toggle($(this).find('.class_name').text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    })
+
+    function LoadPageContent(url,batch_class_id=false) {
+        $('#load_content').html(`<div class="theme_perspective preloader"><div class="pace_activity"></div><div class="pace_activity"></div><div class="pace_activity"></div><div class="pace_activity"></div></div>`);
+        $.ajax({
+            mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
+            url: url,
+            data: {'batch_class_id': batch_class_id },
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                if (parseInt(data) === 0) {
+                    $('.preloader').show();
+                } 
+                else {
+                    $('.preloader').hide();
+                    $('#load_content').html(data);
+                }
+            }
+        });
+    }
+
+    // for load video
+    var player,
+    time_update_interval = 0;
+    var materialId = 0;
+
+    // var window_width = $( window ).width();
+    // var div_width = $('#videoPlayerIframe').width() - 50;
+    // if(window_width < 767) {
+    //     div_width = $('#videoPlayerIframe').width();
+    // }
+
+    div_width = $('#videoPlayerIframe').width();
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video-placeholder', {
+            width: div_width,
+            height: 600,
+            videoId: '',
+            events: {
+                onReady: initialize
+            }
+        });
+    };
+    
+    $('.youtubeVideo').on('click', function () {
+        let videoId = $(this).attr('videoId');
+        materialId = $(this).attr('materialId');
+        $('#videoPlayerIframe').show();
+        $('#load_content').hide();
+        $('#sub_menu li').removeClass('active');
+        player.cueVideoById(videoId);
+    });
+    
+    setInterval(function() {
+        let dur = updateTimerDisplay();
+        if(dur != "0:00"){
+            updateWatchTime(materialId, dur);
+        }
+    }, 5000);
+
+    function updateWatchTime(materialId, curDuration) {
+        var assign_batch_class_id = $('#load_content').find('#assign_batch_class_id').val();
+
+        $.ajax({
+            url: "https://lfwf.io/updateVideoWatchTime",
+            data: {materialId:materialId, batch_class_id: assign_batch_class_id, curDuration:curDuration, _token: '0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO'},
+            type: 'POST',
+            dataType: 'json',
+            success: function(data) {
+                if(parseInt(data.auth)===0) {
+                    swal({
+                        title: "Sorry!!",
+                        text: "You have logged out.",
+                        type: "error",
+                        showCancelButton: true,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Login Now!",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        location.replace('https://lfwf.io/login');
+                    });
+                }else{
+                    console.log(data.msgType);
+                }
+            }
+        });
+    }
+
+    // end for load video
+</script>    
+    <!-- /Per Page JS files -->
+
+    <script type="text/javascript">
+    // jillur drag //
+        var dragItem = document.querySelector("#timerItem");
+        var container = document.querySelector("#app");
+
+        var active = false;
+        var currentX;
+        var currentY;
+        var initialX;
+        var initialY;
+        var xOffset = 0;
+        var yOffset = 0;
+
+        container.addEventListener("touchstart", dragStart, false);
+        container.addEventListener("touchend", dragEnd, false);
+        container.addEventListener("touchmove", drag, false);
+
+        container.addEventListener("mousedown", dragStart, false);
+        container.addEventListener("mouseup", dragEnd, false);
+        container.addEventListener("mousemove", drag, false);
+        // it fire when you click Any where 
+        function dragStart(e) {
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === dragItem) {
+                active = true;
+            }
+
+            //TIME UPDATE FUNCTION
+            var hours           = $('.hours').text();
+            var minutes         = $('.minutes').text();
+            var seconds         = $('.seconds').text();
+            updateFunction(hours,minutes,seconds);
+            //END TIME UPDATE FUNCTION
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+    
+            active = false;
+            localStorage.setItem('clockPosition', 'translate3d('+currentX+'px, '+currentY+'px, 0px)');
+        }
+
+        function drag(e) {
+            if (active) {
+                e.preventDefault();
+                if (e.type === "touchmove") {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+                } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                setTranslate(currentX, currentY, dragItem);
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        }
+
+    // end jillur drag //
+    
+    $(document).ready(function(){
+        
+        // localStorage.clear();
+        // Clock Position
+        var storageClockPosition = localStorage.getItem('clockPosition');
+        if(storageClockPosition == null){
+            storageClockPosition = localStorage.setItem('clockPosition', 'translate3d(0px, 0px, 0px)');
+        }else{
+            storageClockPosition = localStorage.getItem('clockPosition');
+        }   
+        $(dragItem).css("transform", storageClockPosition);
+        setTimeout(function(){ $(dragItem).fadeIn(500); }, 2000);
+        // Clock Position
+        // payment alert start
+        var today = new Date();
+        var running_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        // payment alert end
+
+        //-------COUNTDOWN START--------//
+        var firstTimestorageTime = $('.total_time').val();
+        var remaining_time = $('.remaining_time').val();
+        var status = $('.status').val();
+
+        if (status==1) {
+            var firstTimestorageTimeArray = firstTimestorageTime.split(':');
+
+            $('.lfwf-timer').find(".hours").text(firstTimestorageTimeArray[0]);
+            $('.lfwf-timer').find(".minutes").text(firstTimestorageTimeArray[1]);
+            $('.lfwf-timer').find(".seconds").text(firstTimestorageTimeArray[2]);
+
+            if (remaining_time!=0) {
+                var seconds = firstTimestorageTimeArray[2];
+
+                var storage_minutes = firstTimestorageTimeArray[1];
+                var lastMinValue = storage_minutes.slice(-1);
+                if(storage_minutes > 9){
+                    var minutes = firstTimestorageTimeArray[1];
+                }else{
+                    var minutes = lastMinValue;
+                }
+
+                var storage_hours = firstTimestorageTimeArray[0];
+                var lastHourValue = storage_hours.slice(-1);
+                if(storage_hours > 9){
+                    var hours = firstTimestorageTimeArray[0];
+                }else{
+                    var hours = lastHourValue;
+                }
+
+            } else {
+                // $('.buttons-wrapper').hide();
+                // pauseClock();
+                localStorage.setItem('clockStatus', 0);
+            }
+        } else {
+            var firstTimestorageTime = "00:00:00";
+            var firstTimestorageTimeArray = firstTimestorageTime.split(':');
+
+            $('.lfwf-timer').find(".hours").text(firstTimestorageTimeArray[0]);
+            $('.lfwf-timer').find(".minutes").text(firstTimestorageTimeArray[1]);
+            $('.lfwf-timer').find(".seconds").text(firstTimestorageTimeArray[2]);
+
+            var seconds = 0;
+            var minutes = 0;
+            var hours = 0;
+        }
+        //-------COUNTDOWN END--------//
+
+        // Unseen Message count
+        var unseenMsgCount = 8;
+        $('#unseenMsg').text(unseenMsgCount);
+        var total_notify = 10;
+        var seenHistory = 2;
+        if(total_notify <= seenHistory){
+            $('#emptyNotifiy').text('You Have No New Notifications !!');
+        }
+
+        // notify link ajax
+        $('.notifyLink').on('click', function(e){
+            e.preventDefault;
+            var notify_id = $(this).attr('data-id');
+            $.ajax
+            ({ 
+                url : "https://lfwf.io/notifySeen",
+                headers: {
+                    'X-CSRF-Token': '0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO',
+                },
+                data: {"notify_id":notify_id},
+                type: 'post',
+                success: function(response)
+                {   
+                    console.log(response);
+                }
+            });
+        });
+        // end notify link ajax
+
+        $('#startPractice').fadeOut(100); //New
+
+        const measure = $('select#measure')
+        const ammount = $('input#num')
+        const timer = $('#timer')
+        const s = $(timer).find('.seconds')
+        const m = $(timer).find('.minutes')
+        const h = $(timer).find('.hours')
+
+        var interval = 0;
+        var clockType = 'cronometer';
+
+        if( seconds > 0 ){
+            pauseClock();
+        } 
+
+        //START TIMER
+        $('button#start-cronometer').on('click', function(e){
+            e.preventDefault();
+            //UPDATE FUNCTION
+            updateFunction(hours,minutes,seconds, actionFrom=1);
+            
+            $(this).hide();
+            $('button#stop-timer').fadeIn(100);
+            $('#filterContrast').fadeIn(100); //New
+            $('#startPractice').fadeOut(100); //New
+            clockType = 'cronometer'
+            startClock();
+            localStorage.setItem('clockStatus', 1);
+        });
+        //END START TIMER
+
+        //STOP TIMER
+        $('button#stop-timer').on('click', function(e) {
+            e.preventDefault();
+            $(this).hide();
+            var id = $(this).attr("data-id");
+
+            //UPDATE FUNCTION
+            updateFunction(hours,minutes,seconds);
+
+            $('#start-cronometer').hide();
+            $('#filterContrast').hide(); //New
+            $('#resume-timer').fadeIn(100);
+            $('#startPractice').fadeIn(100); //New
+            pauseClock();
+            localStorage.setItem('clockStatus', 0);
+        });
+        //END STOP TIMER
+
+        //LAST TIME UPDATE(AUTO)
+        setInterval(function () {
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+            if (time >= '23:55:00') {
+                //UPDATE FUNCTION
+                updateFunction(hours,minutes,seconds);
+                console.log(time +'Update data!');
+            }         
+        },3*60000);
+        //END LAST TIME UPDATE(AUTO)
+
+
+        $('button#resume-timer').on('click', function(e) {
+
+            e.preventDefault();
+            $(this).hide();
+            $('button#stop-timer').fadeIn(100);
+            $('#filterContrast').fadeIn(100);
+
+            localStorage.setItem('clockStatus', 1);
+            $('button#resume-timer').fadeOut(100);
+            $('#filterContrast').fadeIn(); //New
+            $('#startPractice').fadeOut(100); //New
+            switch (clockType) {
+                case 'cronometer':
+                    cronometer()
+                    break
+                default:
+                    break;
+            }
+        });
+
+        function pad(d) {
+            return (d < 10) ? '0' + d.toString() : d.toString()
+        }
+
+        function startClock() {
+            hasStarted = true
+            hasEnded = false
+
+            refreshClock()
+
+            $('.input-wrapper').slideUp(350)
+            setTimeout(function(){
+                $('#timer').fadeIn(350)
+                $('#stop-timer').fadeIn(350)
+
+            }, 350)
+
+            switch (clockType) {
+                case 'cronometer':
+                    cronometer()
+                    break
+                default:
+                    break;
+            }
+            
+            //AUTO PRACTICE TIME UPDATE
+            setInterval(function () {
+                //UPDATE FUNCTION
+                updateFunction(hours,minutes,seconds);
+            },10*60000);
+            //AUTO PRACTICE TIME UPDATE
+        }
+
+        $(window).on('load', function(){
+            //TIME UPDATE FUNCTION
+            var hours           = $('.hours').text();
+            var minutes         = $('.minutes').text();
+            var seconds         = $('.seconds').text();
+            updateFunction(hours,minutes,seconds);
+            //END TIME UPDATE FUNCTION
+            console.log(hours,minutes,seconds)
+        });
+
+        function pauseClock() {
+            clear(interval)
+            $('#resume-timer').fadeIn()
+        }
+
+        var hasStarted = false
+        var hasEnded = false
+        if (hours == 0 && minutes == 0 && seconds == 0 && hasStarted == true) {
+            hasEnded = true
+        }
+
+        function cronometer() {
+            hasStarted = true
+            interval = setInterval(() => {
+                if (seconds < 59) {
+                    seconds++
+                    refreshClock()
+                }
+                else if (seconds == 59) {
+                    minutes++
+                    seconds = 0
+                    refreshClock()
+                }
+
+                if (minutes == 60) {
+                    hours++
+                    minutes = 0
+                    seconds = 0
+                    refreshClock()
+                }
+
+            }, 1000)
+        }
+
+        function refreshClock() {
+            $(s).text(pad(seconds))
+            $(m).text(pad(minutes))
+            if (hours < 0) {
+                $(s).text('00')
+                $(m).text('00')
+                $(h).text('00')
+            } else {
+                $(h).text(pad(hours))
+            }
+        }
+
+        function clear(intervalID) {
+            clearInterval(intervalID)
+            console.log('cleared the interval called ' + intervalID)
+        }
+        // end countdown timer
+
+        // again start
+        $('button#again_start').on('click', function() {
+            againStart();
+            localStorage.setItem('clockStatus', 1);
+
+            $('#filterContrast').fadeIn();
+            $('#stop-timer').fadeIn();
+            $('#again_start').fadeOut();
+        });
+           
+        function againStart() {
+            hours = 0;
+            minutes =0;
+            seconds =0;
+            hasStarted = true
+            interval = setInterval(() => {
+                if (seconds < 59) {
+                    seconds++
+                    refreshClock()
+                }
+                else if (seconds == 59) {
+                    minutes++
+                    seconds = 0
+                    refreshClock()
+                }
+
+                if (minutes == 60) {
+                    hours++
+                    minutes = 0
+                    seconds = 0
+                    refreshClock()
+                }
+
+            }, 1000)
+        }
+
+        // auto clock on/off when page load
+        if(localStorage.getItem('clockStatus') == 1){
+            startClock();
+            $('#filterContrast').fadeIn();
+            $('#resume-timer').fadeOut();
+            $('#start-cronometer').fadeOut();
+            $('#again_start').fadeOut();
+            $('#stop-timer').fadeIn();
+        }else{
+            $('#filterContrast').fadeOut();
+            $('#resume-timer').fadeOut();
+            $('#start-cronometer').fadeIn();
+            $('#again_start').fadeOut();
+            $('#stop-timer').fadeOut();
+            $('#startPractice').fadeIn(100); //New
+        }
+
+        setInterval(function() {
+
+            var running_hours = $('.lfwf-timer').find('.hours').text();
+            var running_minutes = $('.lfwf-timer').find('.minutes').text();
+            var running_seconds = $('.lfwf-timer').find('.seconds').text();
+            var time = running_hours+":"+running_minutes+":"+running_seconds;
+            
+            var today = new Date();
+            var running_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var storage_date = localStorage.getItem('date');
+
+            if (storage_date === null) {
+                localStorage.setItem('time', time);
+                localStorage.setItem('date', running_date);
+                localStorage.setItem('clockStatus', 0);
+            }else{
+                if(storage_date != running_date){
+                    // $.ajax
+                    // ({ 
+                    //     url : "https://lfwf.io/parcticeTimeUpdate",
+                    //     headers: {
+                    //         'X-CSRF-Token': '0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO',
+                    //     },
+                    //     data: {"hours":hours, "minutes":minutes, "seconds":seconds, "storageDate":storage_date, "type":1},  //type 1 = stop,type 2 = resume, 3=auto
+                    //     type: 'post',
+                    //     success: function()
+                    //     {
+                            
+                    //     }
+                    // });
+                    localStorage.clear(); 
+                    pauseClock();
+
+                    var time = 0+":"+0+":"+0;
+
+                    $('.lfwf-timer').find(".hours").text(0);
+                    $('.lfwf-timer').find(".minutes").text(0);
+                    $('.lfwf-timer').find(".seconds").text(0);  
+
+                    $('#resume-timer').fadeOut();
+                    $('#start-cronometer').fadeOut();
+                    $('#filterContrast').fadeOut();
+                    $('#stop-timer').fadeOut();
+
+                    $('#again_start').fadeIn();
+                    localStorage.setItem('clockStatus', 0);
+                    localStorage.setItem('time', time);
+                    localStorage.setItem('date', running_date);
+
+                    $('button#resume-timer').hide();
+                    $('#resume-timer').fadeOut();
+
+                }else{
+                    // timer set time
+                    localStorage.setItem('time', time);
+                    localStorage.setItem('date', running_date);
+                }
+            }
+        }, 1000);
+        
+        //alert payment start
+        $('#alert_close').on('click', function(e){
+            e.preventDefault;
+                            localStorage.setItem('payment_alert_1039_4', running_date);
+                    });
+                    if(localStorage.getItem('payment_alert_1039_4') == running_date){
+                $('#payment_alert').hide();
+            }else{
+                $('#payment_alert').show();
+            }
+                //alert payment end
+    }); //end document ready
+
+
+    //UPDATE FUNCTION actionFrom: 1=Start btn, 0=Others
+    function updateFunction(hours,minutes,seconds,actionFrom=0) {
+        $.ajax({ 
+            url : "https://lfwf.io/parcticeTimeUpdate",
+            headers: {
+                'X-CSRF-Token': '0iL8CfriGQEhqw16GQJcAeguTsgswRZYusbD69nO',
+            },
+            data: {"hours":hours,"minutes":minutes,"seconds":seconds,"type":1}, //type 1 = stop,type 2 = resu
+            type: 'post',
+            success: function(data)
+            {
+                $('.total_time').val(data.total_time);
+                $('.remaining_time').val(data.remaining_time);
+                if (data.remaining_time == 0 || data.remaining_time<1) {
+                    // $('.buttons-wrapper').hide();
+                    var firstTimestorageTime = data.total_time;
+                    var firstTimestorageTimeArray = firstTimestorageTime.split(':');
+                    $('.lfwf-timer').find(".hours").text(firstTimestorageTimeArray[0]);
+                    $('.lfwf-timer').find(".minutes").text(firstTimestorageTimeArray[1]);
+                    $('.lfwf-timer').find(".seconds").text(firstTimestorageTimeArray[2]);
+                    if (actionFrom==1) {
+                        swal({
+                            title: "Warning",
+                            text: data.msg,
+                            confirmButtonColor: "#2196F3",
+                            type: "error"
+                        });
+                    }
+                } else {
+                    $('.buttons-wrapper').show();
+                }
+            }
+        });
+    }
+    </script>
+
+</body>
+</html>
